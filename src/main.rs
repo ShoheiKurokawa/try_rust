@@ -1,4 +1,6 @@
 // This is a simple example of a trait in Rust
+// Trait is a way to define a set of methods that a type must implement.
+// A trait is similar to an interface in other languages.
 trait Animal {
     fn speak(&self);
     fn sleep_time(&self);
@@ -6,11 +8,14 @@ trait Animal {
     fn age(&self);
 }
 
+// A struct is a way to define a custom data type in Rust.
+// You can implement a method for a struct using the impl keyword.
 struct Dog {
     name: String,
     age: u8,
 }
 
+// The Dog struct implements the Animal trait.
 impl Animal for Dog {
     fn speak(&self) {
         println!("{} says Woof!", self.name); // Woof!
@@ -28,6 +33,7 @@ impl Animal for Dog {
         println!("{} is {} years old", self.name, self.age);
     }
 }
+
 
 struct Cat {
     name: String,
@@ -54,6 +60,7 @@ impl Animal for Cat {
 
 
 // The function is generic over type T, which implements the Ord trait.
+// Ord trait can be used to compare values of type T.
 // array is a reference to a value of type T.
 fn binary_search<T: Ord>(array: &[T], target: &T) -> Option<usize> {
     let mut left = 0;
@@ -174,6 +181,8 @@ fn main() {
     dog.sleep_time();
     dog.speed();
     dog.age();
+
+    println!("");
 
     cat.speak();
     cat.sleep_time();
